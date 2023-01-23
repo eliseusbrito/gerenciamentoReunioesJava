@@ -1,5 +1,7 @@
 package br.org.fiergs.grp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -14,7 +16,7 @@ public class Reuniao implements Serializable {
     @SequenceGenerator(name="GRP_GENERATOR", sequenceName="GRP_SEQ", allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="GRP_GENERATOR")
     @Column(name="ID")
-    private String id;
+    private Long id;
 
     @Column(name="ASSUNTO")
     private String assunto;
@@ -31,10 +33,14 @@ public class Reuniao implements Serializable {
     @Column(name="STATUS")
     private String status;
 
+    @JsonIgnore
     @ManyToMany
     @JoinColumn(name="id")
     @Column(name="LISTA_DIRETOR")
     private List<Diretor> diretorList;
+
+    public Reuniao() {
+    }
 
     public Reuniao(String assunto, LocalDateTime fullDate, String local, String tipoReuniao, String status, List<Diretor> diretorList) {
         this.assunto = assunto;
@@ -45,7 +51,7 @@ public class Reuniao implements Serializable {
         this.diretorList = diretorList;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -71,5 +77,33 @@ public class Reuniao implements Serializable {
 
     public List<Diretor> getDiretorList() {
         return diretorList;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setAssunto(String assunto) {
+        this.assunto = assunto;
+    }
+
+    public void setFullDate(LocalDateTime fullDate) {
+        this.fullDate = fullDate;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
+    }
+
+    public void setTipoReuniao(String tipoReuniao) {
+        this.tipoReuniao = tipoReuniao;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setDiretorList(List<Diretor> diretorList) {
+        this.diretorList = diretorList;
     }
 }

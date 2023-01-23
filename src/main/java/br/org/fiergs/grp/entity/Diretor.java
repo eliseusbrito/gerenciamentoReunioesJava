@@ -12,7 +12,7 @@ public class Diretor implements Serializable {
     @SequenceGenerator(name="GRP_GENERATOR", sequenceName="GRP_SEQ", allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="GRP_GENERATOR")
     @Column(name="ID")
-    private String id;
+    private Long id;
 
     @Column(name="NOME")
     private String nome;
@@ -40,7 +40,7 @@ public class Diretor implements Serializable {
         this.situacao = situacao;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 

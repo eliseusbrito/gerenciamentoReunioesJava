@@ -22,8 +22,35 @@ public class DiretorRequestDTO {
     public DiretorRequestDTO() {
     }
 
+    public DiretorRequestDTO(String nome, String email, String telefone, String cargo, String situacao) {
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.cargo = cargo;
+        this.situacao = situacao;
+    }
+
     public Diretor transformaParaObjeto(){
         return new Diretor(nome, email, telefone, cargo, situacao);
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
 }

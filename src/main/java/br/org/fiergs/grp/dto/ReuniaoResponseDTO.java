@@ -36,4 +36,27 @@ public class ReuniaoResponseDTO {
         this.diretorList = diretorList;
     }
 
+    public String getAssunto() {
+        return assunto;
+    }
+
+    public LocalDateTime getFullDate() {
+        return fullDate;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public String getTipoReuniao() {
+        return tipoReuniao;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public List<Diretor> getDiretorList() {
+        return diretorList;
+    }
 }
